@@ -7,6 +7,10 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Check Spec
+        run: |
+          sysctl -n machdep.cpu.brand_string
+          top -l 1 -s 0 | grep PhysMem
       - name: Install Dependencies
         run: |
           brew install llvm@9

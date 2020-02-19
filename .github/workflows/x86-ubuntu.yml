@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
+      - name: Check Spec
+        run: |
+          cat /proc/cpuinfo
+          sudo free -h
       - name: Install Dependencies
         run: |
           wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
